@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#e8f0ed">
+  <title>Задачи</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-wrapper">
+    <div class="app-container">
+
+      <header class="app-header">
+        <div class="header-eyebrow">Личное пространство</div>
+        <h1 class="app-title">Задачи</h1>
+      </header>
+
+      <div class="add-task-card glass-card">
+        <input
+          type="text"
+          id="newTaskInput"
+          class="main-input"
+          placeholder="Новая задача"
+          autocomplete="off"
+          autocorrect="off"
+          spellcheck="false"
+          maxlength="80"
+        >
+        <button id="addTaskBtn" class="btn-add">
+          <span>Добавить</span>
+        </button>
+      </div>
+
+      <div id="taskList" class="task-list"></div>
+
+      <div id="emptyState" class="empty-state hidden">
+        <div class="empty-orb"></div>
+        <p class="empty-text">Добавь первую задачу</p>
+        <p class="empty-sub">Все твои дела — в одном месте</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div id="modalOverlay" class="modal-overlay" aria-hidden="true">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal" id="modal" role="dialog" aria-modal="true">
+      <div class="modal-handle"></div>
+
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle"></h2>
+        <button class="btn-close" id="closeModalBtn" aria-label="Закрыть">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="subtask-list-wrapper">
+        <div id="subtaskList" class="subtask-list"></div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="add-subtask-row">
+          <textarea
+            id="newSubtaskInput"
+            class="subtask-input"
+            placeholder="Что нужно сделать?"
+            autocomplete="off"
+            autocorrect="off"
+            spellcheck="false"
+            maxlength="300"
+            rows="2"
+          ></textarea>
+          <button id="addSubtaskBtn" class="btn-add-sub">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M8 2V14M2 8H14" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+        <button id="saveModalBtn" class="btn-save">Сохранить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
